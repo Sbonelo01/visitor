@@ -20,7 +20,7 @@ const Visitor = class {
             if (err) {
                 throw err;
             }
-
+                console.log(this.fullName + ' file has been created');
         });
     
         return this;
