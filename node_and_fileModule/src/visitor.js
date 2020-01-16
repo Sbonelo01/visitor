@@ -16,11 +16,12 @@ const Visitor = class {
      *The file name should be named like this visitor_{their_full_name}.json
     */
     async save() {
-        fs.writeFile('visitor_' + this.fullName + '.json', JSON.stringify(this, null, 4), (err) => {
+        let name = this.fullName.replace('_',' ');
+        fs.writeFile('visitor_' + name + '.json', JSON.stringify(this, null, 4), (err) => {
             if (err) {
                 throw err;
             }
-                console.log(this.fullName + ' file has been created');
+                console.log(name + ' file has been created');
         });
     
         return this;
