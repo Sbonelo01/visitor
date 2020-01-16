@@ -35,16 +35,13 @@ const Visitor = class {
 */
 function load(fullName) {
     let name = fullName.replace(' ', '_')
-    let datas = ''
     fs.readFile('visitor_' + name +'.json', 'utf8', (err, data) => {
         if(err){
             throw err;
         }else{
-            // console.log(data);
-            datas = data;
+             console.log(data);
         }
-    })
-    return datas;    
+    })    
 }
 
 let alice = new Visitor('Alice_Smith', 21, '13/01/2020', '12:00', 'amazing', 'Sbonelo');
