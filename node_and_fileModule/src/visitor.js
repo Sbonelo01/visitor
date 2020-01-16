@@ -44,17 +44,6 @@ function load(fullName) {
     })    
 }
 
-let alice = new Visitor('Alice_Smith', 21, '13/01/2020', '12:00', 'amazing', 'Sbonelo');
-let bob = new Visitor('Bob_Sola', 24, '14/01/2020', '13:00', "he seems alright", 'Sbonelo');
-let charlie = new Visitor('Charlie_Zondi', 19, '14/01/2020', '14:00', 'Interesting', 'Sbonelo');
-alice.save();
-bob.save();
-charlie.save();
-
-load('Alice Smith')
-load('Bob Sola');
-load('Charlie Zondi');
-
 module.exports = {
     Visitor,
     load
