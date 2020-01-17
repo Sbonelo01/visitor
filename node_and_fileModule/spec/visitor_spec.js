@@ -20,5 +20,16 @@ describe('functionality tests', () => {
 	xit('should return data', () => {
 		expect(JSON.stringify(alice)).toBe(data);	
 	});
-
+	
+	it('writes', () => {
+		let fs = require('fs');
+		fs.readFile('../visitor/visitor_Alice_Smith.json', (err, data) => {
+			let jsonData = JSON.parse(data);
+			expect(JSON.stringify(jsonData)).toEqual(JSON.stringify(alice))
+		})
+	})
+	
+	it('should contain some words', () => {
+		expect(alice.save).toContain('Sbonelo');
+	});
 })
