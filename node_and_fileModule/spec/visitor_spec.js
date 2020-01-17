@@ -19,9 +19,7 @@ describe('functionality tests', () => {
 	
 	it('should return data', () => {
         	expect(JSON.parse(JSON.stringify(alice))).toEqual(JSON.parse(data));    
-    });
-	
-	});
+    	});
 	
 	it('writes', () => {
 		let fs = require('fs');
