@@ -1,4 +1,4 @@
-"use strict";
+'use strict'
 
 const fs = require('fs');
 
@@ -11,22 +11,18 @@ const Visitor = class {
         this.comments = comments;
         this.person = person;
     }
+
     /*
      *Create a function called save that saves the visitor's data to a JSON file.
      *The file name should be named like this visitor_{their_full_name}.json
     */
     async save() {
-        let name = this.fullName.replace('_',' ');
-        fs.writeFile('visitor_' + name + '.json', JSON.stringify(this, null, 4), (err) => {
+        fs.writeFile('visitor_' + this.fullName + '.json', JSON.stringify(this, null, 4), (err) => {
             if (err) {
                 throw err;
             }
-                console.log(name + ' file has been created');
         });
-    
-        return this;
     }
-    
 }
 
 /*
@@ -39,9 +35,9 @@ function load(fullName) {
         if(err){
             throw err;
         }else{
-             console.log(data);
+            console.log(data);
         }
-    })    
+    })
 }
 
 module.exports = {
