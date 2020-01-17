@@ -1,23 +1,24 @@
 let visitor = require('../src/visitor');
 
-it('should exist', () => {
-	expect(visitor.load).toBeDefined();
-})
+describe('functionality tests', () => {
 
+		let bob = new visitor.Visitor();
+		let charlie = new visitor.Visitor();
 
-it('should exist', () => {
-	let alice = new visitor.Visitor()
-	expect(alice.save).toBeDefined();
-})
+		let alice = new visitor.Visitor('Alice Smith', 21, '13/01/2020', '12:00', 'amazing', 'Sbonelo');
+		let data = '{"fullName":"Alice Smith","age":21,"date":"13-01-2020","time":"12:00","comments":"amazing","person":"Sbonelo"}';
 
-//it('should return data', () => {
-//	let data = require('visitor_Alice_Smith.json')
-//	let alice = new visitor.Visitor();
-//	expect(visitor.load('Alice Smith')).toEqual(data);
-//})
+	it('should exist', () => {
+		expect(visitor.load).toBeDefined();
+	});
 
-it('should create file', () => {
-	expect('/home/sbonelo/Desktop/code/node/src/visitor_Alice_Smith.json').toBeDefined();
-	expect('/home/sbonelo/Desktop/code/node/src/visitor_Bob_Sola.json').toBeDefined();
-	expect('/home/sbonelo/Desktop/code/node/src/visitor_Charlie_Zondi.json').toBeDefined();	
+	it('should exist', () => {
+		expect(bob.save).toBeDefined();
+		expect(charlie.save).toBeDefined();
+	});
+
+	xit('should return data', () => {
+		expect(JSON.stringify(alice)).toBe(data);	
+	});
+
 })
