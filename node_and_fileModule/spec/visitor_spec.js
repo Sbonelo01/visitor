@@ -1,35 +1,34 @@
 let visitor = require('../src/visitor');
+let fs = require('fs');
 
-describe('functionality tests', () => {
+describe('function save()', () => {
+    let alice = new visitor.Visitor('alice_cooper', 21, '13/01/2020', '12:00', 'amazing', 'Sbonelo')
+    
+    it('exists', () => {
+        expect(alice.save).toBeDefined()
+    })
 
-		let bob = new visitor.Visitor();
-		let charlie = new visitor.Visitor();
+    alice.save()
+    
+    it('creates named files', () => {
+        aliceFile = require('../visitor_alice_cooper.json')
+        expect(aliceFile).toBeDefined()
+    })
 
-		let alice = new visitor.Visitor('Alice Smith', 21, '13/01/2020', '12:00', 'amazing', 'Sbonelo');
-        	let data = '{"fullName":"Alice Smith","age":21,"date":"13/01/2020","time":"12:00","comments":"amazing","person":"Sbonelo"}';
+    it("writes a visitor's content to a respectively named file", () => {
+        fs.readFile('visitor_alice_cooper.json', 'UTF8', (err, data) =>{
+            if(err){throw err}
+            else{
+                let readData = data
+                expect(readData).toEqual(JSON.stringify(alice, null, 4))
+            }
+        })
+    })
 
-	it('should exist', () => {
-		expect(visitor.load).toBeDefined();
-	});
+})
 
-	it('should exist', () => {
-		expect(bob.save).toBeDefined();
-		expect(charlie.save).toBeDefined();
-	});
-	
-	it('should return data', () => {
-        	expect(JSON.parse(JSON.stringify(alice))).toEqual(JSON.parse(data));    
-    	});
-	
-	it('writes', () => {
-		let fs = require('fs');
-		fs.readFile('../visitor/visitor_Alice_Smith.json', (err, data) => {
-			let jsonData = JSON.parse(data);
-			expect(JSON.stringify(jsonData)).toEqual(JSON.stringify(alice))
-		})
-	})
-	
-	it('should contain some words', () => {
-		expect(alice.save).toContain('Sbonelo');
-	});
+describe('function load()', () => {
+    it('exists', () => {
+        expect(visitor.load).toBeDefined()
+    })
 })
