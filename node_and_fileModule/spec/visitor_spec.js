@@ -8,13 +8,6 @@ describe('function save()', () => {
         expect(alice.save).toBeDefined()
     })
 
-    alice.save()
-    
-    it('creates named files', () => {
-        aliceFile = require('../visitor_alice_cooper.json')
-        expect(aliceFile).toBeDefined()
-    })
-
     it("writes a visitor's content to a respectively named file", () => {
         fs.readFile('visitor_alice_cooper.json', 'UTF8', (err, data) =>{
             if(err){throw err}
